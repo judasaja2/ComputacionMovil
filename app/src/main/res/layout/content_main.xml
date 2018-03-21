@@ -8,6 +8,17 @@
     tools:context="com.example.jdavidsanchez.practica2.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/contenedor">
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
