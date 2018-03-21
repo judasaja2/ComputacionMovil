@@ -1,5 +1,7 @@
 package com.example.jdavidsanchez.practica2;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -83,6 +85,18 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            DbHelper dbHelper = new DbHelper(this); //Instancia de DbHelper
+            SQLiteDatabase db = dbHelper.getWritableDatabase(); //Obtenemos la instancia de la BD
+
+            ContentValues values = new ContentValues(); //Creamos el contenedor
+
+            values.put(StatusContract.Column.ID, "1"); //Se pasan pares clave-valor
+            values.put(StatusContract.Column.USER, "student");
+            values.put(StatusContract.Column.MESSAGE, "mensaje de prueba");
+            values.put(StatusContract.Column.CREATED_AT, "15/10/2016 08:00:00");
+
+            db.insertWithOnConflict(StatusContract.TABLE, null, values,
+                    SQLiteDatabase.CONFLICT_IGNORE);
 
         } else if (id == R.id.nav_slideshow) {
 
